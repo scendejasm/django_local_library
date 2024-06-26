@@ -1,3 +1,5 @@
+import os # needed for authetication features
+
 """
 Django settings for locallibrary project.
 
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'locallibrary.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +70,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# Redirect to hom URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
 
 WSGI_APPLICATION = 'locallibrary.wsgi.application'
 
